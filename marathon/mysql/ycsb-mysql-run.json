@@ -1,0 +1,38 @@
+{
+  "id": "ycsb-mysql-run",
+  "container": {
+    "docker": {
+      "image": "ycsb",
+      "network": "HOST",
+      "privileged": true,
+      "parameters": [ ]
+    },
+	"volumes": [
+			      {
+			    	  "containerPath": "/ycsb/YCSB/db.properties",
+			    	  "hostPath": "./mysql-db.properties",
+			          "mode": "RW"
+			      },
+			      {
+			    	  "containerPath": "/ycsb/YCSB/mysql-connector-java.jar",
+			    	  "hostPath": "./mysql-connector-java-5.1.40.jar",
+			          "mode": "RW"
+			      }
+			]
+  },
+  "cpus": 1,
+  "mem": 1024,
+  "instances": 1 ,
+  "acceptedResourceRoles": ["slave_public"],
+  "uris": [
+           "https://s3-us-west-1.amazonaws.com/mydata.yl/mysql-db.properties",
+           "http://central.maven.org/maven2/mysql/mysql-connector-java/5.1.40/mysql-connector-java-5.1.40.jar"
+           ],
+  "env": {
+	  "YCSB_OP":"run",
+	  "YCSB_DB": "jdbc",
+	  "YCSB_WORKLOAD":"workloada",
+	  "YCSB_PROPERTIES": "db.properties",
+	  "YCSB_CP": "mysql-connector-java.jar"
+  }
+} 

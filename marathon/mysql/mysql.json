@@ -1,0 +1,17 @@
+{
+  "id": "mysql",
+  "container": {
+    "docker": {
+      "image": "mysql:latest",
+      "network": "HOST"
+    }
+  },
+  "cpus": 2,
+  "mem": 4096,
+  "instances": 1,
+  "acceptedResourceRoles": ["slave_public"],
+  "env": {
+	  "MYSQL_ROOT_PASSWORD":"myroot"
+  },
+  "constraints": []
+} 
