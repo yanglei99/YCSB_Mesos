@@ -33,6 +33,7 @@
 	  "YCSB_DB": "jdbc",
 	  "YCSB_WORKLOAD":"workloada",
 	  "YCSB_PROPERTIES": "db.properties",
-	  "YCSB_CP": "mysql-connector-java.jar"
+	  "YCSB_CP": "mysql-connector-java.jar",
+	  "YCSB_ADD_PROPERTIES": "-p db.url=jdbc:mysql://YOUR_HOST:3306/ycsb -p db.passwd=YOUR_PASS -p threadcount=2 -p recordcount=5000 -p operationcount=5000"
   }
 } 

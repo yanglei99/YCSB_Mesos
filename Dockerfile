@@ -58,6 +58,7 @@ ENV YCSB_DB jdbc
 ENV YCSB_WORKLOAD workloada
 ENV YCSB_PROPERTIES db.properties
 ENV YCSB_CP mysql-connector-java.jar
+ENV YCSB_ADD_PROPERTIES -p threadcount=4 -p recordcount=10000 -p operationcount=10000
 
 VOLUME /ycsb/YCSB
 
