@@ -1,0 +1,32 @@
+{
+  "id": "ycsb-redis-load",
+  "container": {
+    "docker": {
+      "image": "ycsb",
+      "network": "HOST",
+      "privileged": true,
+      "parameters": [ ]
+    },
+	"volumes": [
+			      {
+			    	  "containerPath": "/ycsb/YCSB/db.properties",
+			    	  "hostPath": "./redis-db.properties",
+			          "mode": "RW"
+			      }
+			]
+  },
+  "cpus": 1,
+  "mem": 1024,
+  "instances": 1 ,
+  "acceptedResourceRoles": ["slave_public"],
+  "uris": [
+           "https://s3-us-west-1.amazonaws.com/mydata.yl/redis-db.properties"
+           ],
+  "env": {
+	  "YCSB_OP":"load",
+	  "YCSB_DB": "redis",
+	  "YCSB_WORKLOAD":"workloada",
+	  "YCSB_PROPERTIES": "db.properties",
+	  "YCSB_ADD_PROPERTIES": "-p redis.host=YOUR_HOST -p threadcount=2 -p recordcount=5000 -p operationcount=5000"
+  }
+} 
